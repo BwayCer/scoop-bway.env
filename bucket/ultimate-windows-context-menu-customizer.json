@@ -1,0 +1,13 @@
+{
+    "homepage": "http://www.door2windows.com/ultimate-windows-context-menu-customizer-customize-context-menu-in-windows-xp-vista-7",
+    "version": "unknown",
+    "license": "Freeware",
+    "url": "https://github.com/BwayCer/scoopBucket.env/releases/download/n0.1.v-unknown/Ultimate-Windows-Context-Menu-Customizer.zip",
+    "hash": "53e9d4cccb9d1a6e8ce7b8c4ae579942570f8db1c8f1afbd65be2f09b7a59006",
+    "bin": [
+        [
+            "Ultimate Windows Context Menu Customizer.exe",
+            "ultimate-windows-context-menu-customizer"
+        ]
+    ]
+}

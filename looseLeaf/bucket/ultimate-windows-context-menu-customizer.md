@@ -1,31 +1,33 @@
-Windows Context Menu 訂製工具
+Ultimate Windows Context Menu Customizer
 =======
 
 
-> [更新於 2020.12.12](#修改紀錄)
+> [更新於 2020.12.18](#修改紀錄)
 
 
-設定 Windows Context Menu 的圖形介面工具。
-
-
-**安裝：**
-`scoop install bway/ultimate-windows-context-menu-customizer`
+**安裝： `scoop install bway/ultimate-windows-context-menu-customizer`**
 
 
 
-## 來源資訊
+## 程式包資訊
 
 
-* 程式名： Ultimate Windows Context Menu Customizer
-* 版本： ---
-* 官網： http://www.door2windows.com/ultimate-windows-context-menu-customizer-customize-context-menu-in-windows-xp-vista-7
-* 來源： http://www.door2windows.com/download-freeware/#Ultimate+Windows+Context+Menu+Customizer
-* 主程式： ./Ultimate Windows Context Menu Customizer.exe
+[安裝文件](../../bucket/ultimate-windows-context-menu-customizer.json)
 
-
-**自製載點：**
-
-  * [n0.1.v-unknown](https://github.com/BwayCer/scoopBucket.env/releases/tag/n0.1.v-unknown)
+* 主頁： http://www.door2windows.com/ultimate-windows-context-menu-customizer-customize-context-menu-in-windows-xp-vista-7
+* 描述： door2windows 的免費軟件，允許您在 Windows 中輕鬆自定義許多位置的上下文菜單。
+* 授權： Freeware
+* 依賴： ---
+* 可選擴展： ---
+* 執行文件：
+  * `./Ultimate Windows Context Menu Customizer.exe`
+* 捷徑文件：
+  * `./Ultimate Windows Context Menu Customizer.exe`
+* 環境變數： ---
+* 持久容器： ---
+* 自動更新： :x:
+* 下載點：
+  * [v-unknown-64bit.zip (非官方)](https://github.com/BwayCer/scoopBucket.env/releases/tag/n0.1.v-unknown)
 
 
 
@@ -33,4 +35,5 @@ Windows Context Menu 訂製工具
 
 
 * 2020.12.12 編寫。
+* 2020.12.18 排版更改，補齊安裝文件的內容。
 

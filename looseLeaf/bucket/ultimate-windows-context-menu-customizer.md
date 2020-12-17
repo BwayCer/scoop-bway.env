@@ -19,6 +19,7 @@ Ultimate Windows Context Menu Customizer
 * 授權： Freeware
 * 依賴： ---
 * 可選擴展： ---
+* 可攜式安裝： ![可修改](https://img.shields.io/badge/△%20可修改-orange)
 * 執行文件：
   * `./Ultimate Windows Context Menu Customizer.exe`
 * 捷徑文件：
@@ -28,6 +29,14 @@ Ultimate Windows Context Menu Customizer
 * 自動更新： :x:
 * 下載點：
   * [v-unknown-64bit.zip (非官方)](https://github.com/BwayCer/scoopBucket.env/releases/tag/n0.1.v-unknown)
+
+
+
+## 參考
+
+
+* 其他閱讀
+  * [How to Customize Windows Context Menu - Hongkiat](https://www.hongkiat.com/blog/manage-windows-context-menu)
 
 
 

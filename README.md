@@ -58,6 +58,8 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
   * [ysBashComplete](./bin/ysBashComplete): 命令列舉自動補齊。
   * [surfaceKeyboardLayout.reg](./bin/surfaceKeyboardLayout.reg): Surface 的鍵盤布局。
 * 程式桶
+  * [`bway/dotnet-desktop-runtime`](./looseLeaf/bucket/dotnet-desktop-runtime.md): .NET Runtime。
+  * [`bway/powertoys`](./looseLeaf/bucket/powertoys.md): PowerToys。
   * [`bway/ultimate-windows-context-menu-customizer`](./looseLeaf/bucket/ultimate-windows-context-menu-customizer.md): Windows Context Menu 訂製工具。
 
 

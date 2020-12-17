@@ -1,0 +1,49 @@
+{
+    "homepage": "https://dotnet.microsoft.com",
+    "version": "5.0.1",
+    "description": ".NET is a free, cross-platform, open source and the runtime includes everything you need to run existing .NET Core and ASP.NET Core applications.",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://dotnet.microsoft.com/platform/free"
+    },
+    "notes": "Need to restart the command line.",
+    "architecture": {
+        "64bit": {
+            "url": "https://dotnetcli.blob.core.windows.net/dotnet/WindowsDesktop/5.0.1/windowsdesktop-runtime-5.0.1-win-x64.exe",
+            "hash": "sha512:ac1be00ce52296148a84ddbcd92c7a78b1c6e09cf65d23fb2859ef050c3ad87eacf70745deb1cea0c64832486eb0b3470219dcb80ed034419bf6673487f2bac6"
+        }
+    },
+    "installer": {
+        "script": [
+            "Expand-DarkArchive \"$dir\\$fname\" \"$dir\\extracted\" -Removal",
+            "Get-ChildItem \"$dir\\extracted\\AttachedContainer\\*.msi\" | ForEach-Object { Expand-MsiArchive $_ \"$dir\" }",
+            "Remove-Item \"$dir\\extracted\" -Recurse"
+        ]
+    },
+    "env_add_path": "./dotnet-runtime",
+    "env_set": {
+        "DOTNET_ROOT": "$dir/dotnet-runtime"
+    },
+    "persist": [
+        "dotnet-runtime"
+    ],
+    "post_install": [
+        "Copy-Item \"$dir\\dotnet\\*\" \"$dir\\dotnet-runtime\" -Container -Force -Recurse",
+        "Remove-Item \"$dir\\dotnet\" -Recurse"
+    ],
+    "checkver": {
+        "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
+        "regex": "(?s)(?<version>[\\d.]+)[^\\d]*?(?<sdkVersion>[\\d.]+)[^\\d]*?(?:current|lts)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://dotnetcli.blob.core.windows.net/dotnet/Runtime/$version/windowsdesktop-runtime-$version-win-x64.exe"
+            }
+        },
+        "hash": {
+            "url": "https://dotnetcli.blob.core.windows.net/dotnet/checksums/$version-sha.txt",
+            "mode": "extract"
+        }
+    }
+}

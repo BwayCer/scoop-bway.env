@@ -12,6 +12,8 @@
 ## Scoop 安裝方式
 
 
+**安裝命令行：**
+
 ```ps1
 # 設定 Scoop 安裝程式包目錄路徑
 # $scoopPath       = "$HOME\scoop"
@@ -21,15 +23,26 @@
 iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installTerminal.ps1 | iex
 ```
 
+
+**推薦安裝：**
+
 ```ps1
 # 安裝 bway 程式桶
-# 當程式包名稱相同時會依照 bucket 的名稱排序來選擇參考的 JSON 文件，
-# 其中數字又優先於英文字母。
-# 為避免此種情況發生，建議使用 `scoop install <bucket>/<package>` 的命令方式。
 scoop bucket add bway https://raw.githubusercontent.com/BwayCer/scoop-bway.env
+
+# 安裝常用程式包
+iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCommonPackages.ps1 | iex
 ```
 
-關於 Buckets 的資訊請見 [GitHub lukesampson/scoop/wiki/Buckets](https://github.com/lukesampson/scoop/wiki/Buckets)。
+
+**相關說明：**
+
+  * 關於應用清單的規範請見 [GitHub lukesampson/scoop/wiki/App-Manifests](https://github.com/lukesampson/scoop/wiki/App-Manifests)。
+  * 關於程式包桶子的資訊請見 [GitHub lukesampson/scoop/wiki/Buckets](https://github.com/lukesampson/scoop/wiki/Buckets)。
+  * 當程式包名稱相同時會依照 bucket 的名稱排序來選擇參考的 JSON 文件，
+    其中數字又優先於英文字母。
+    為避免此種情況發生，
+    建議使用 `scoop install <bucket>/<package>` 的命令方式。
 
 
 

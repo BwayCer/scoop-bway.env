@@ -69,4 +69,5 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
 
 * 視窗語法
   * [鍵盤布局登入文件](./looseLeaf/windowsCode/keyboardLayoutRegistry.md)
+  * [Scoop 安裝工具](./looseLeaf/windowsCode/scoopInstaller.md)
 

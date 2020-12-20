@@ -6,7 +6,6 @@
         "identifier": "Freeware",
         "url": "https://dotnet.microsoft.com/platform/free"
     },
-    "notes": "Need to restart the command line.",
     "architecture": {
         "64bit": {
             "url": "https://dotnetcli.blob.core.windows.net/dotnet/WindowsDesktop/5.0.1/windowsdesktop-runtime-5.0.1-win-x64.exe",
@@ -17,20 +16,20 @@
         "script": [
             "Expand-DarkArchive \"$dir\\$fname\" \"$dir\\extracted\" -Removal",
             "Get-ChildItem \"$dir\\extracted\\AttachedContainer\\*.msi\" | ForEach-Object { Expand-MsiArchive $_ \"$dir\" }",
-            "Remove-Item \"$dir\\extracted\" -Recurse"
+            "$pkgDir = \"$(appdir $app $global)\"",
+            "$dotnetDir = \"$pkgDir\\_persist\\dotnet\"",
+            "if (-not (Test-Path \"$dotnetDir\")) {",
+            "    New-Item \"$dotnetDir\" -ItemType Directory | Out-Null",
+            "}",
+            "Copy-Item \"$dir\\dotnet\\*\" \"$dotnetDir\" -Container -Force -Recurse",
+            "@('dotnet', 'extracted') | ForEach-Object { Remove-Item \"$dir\\$_\" -Recurse }",
+            "New-Item \"$dir\\dotnet\" -ItemType Junction -Target \"$dotnetDir\" | Out-Null"
         ]
     },
-    "env_add_path": "./dotnet-runtime",
+    "bin": "./dotnet/dotnet.exe",
     "env_set": {
-        "DOTNET_ROOT": "$dir/dotnet-runtime"
+        "DOTNET_ROOT": "$dir/dotnet"
     },
-    "persist": [
-        "dotnet-runtime"
-    ],
-    "post_install": [
-        "Copy-Item \"$dir\\dotnet\\*\" \"$dir\\dotnet-runtime\" -Container -Force -Recurse",
-        "Remove-Item \"$dir\\dotnet\" -Recurse"
-    ],
     "checkver": {
         "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json",
         "regex": "(?s)(?<version>[\\d.]+)[^\\d]*?(?<sdkVersion>[\\d.]+)[^\\d]*?(?:current|lts)"

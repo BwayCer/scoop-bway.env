@@ -53,6 +53,7 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
 
 * 可執行文件
   * [portable.ps1](./bin/portable.ps1): 可攜版程式包的定型化可攜命令。
+  * [ps1.sh](./bin/ps1.sh): 在 mintty 中另開 PowerShell 執行命令。
   * [scoop.portable.ps1](./bin/scoop.portable.ps1): Scoop 可攜版。
   * [ysBashComplete](./bin/ysBashComplete): 命令列舉自動補齊。
   * [surfaceKeyboardLayout.reg](./bin/surfaceKeyboardLayout.reg): Surface 的鍵盤布局。

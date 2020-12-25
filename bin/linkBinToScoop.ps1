@@ -1,7 +1,5 @@
 # 建立對 scoop/shims 的鏈接文件
 
-$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
-
 
 $binRelativePath = "..\buckets\bway\bin"
 $shimsDirPath = Join-Path "$PSScriptRoot" "..\..\..\shims"
@@ -21,7 +19,7 @@ function copyToShim($ext, $srcPath, $targetPath, $isNeedSh = $false, $isNeedPs1 
     } else {
       $shTxt += $_br + 'powershell.exe -noprofile -ex unrestricted "$path" "$@"'
     }
-    echo $shTxt > "${targetPath}"
+    [IO.File]::WriteAllLines($targetPath, $shTxt)
   }
   if ($isNeedPs1) {
     $shTxt = 'if (!(Test-Path Variable:PSScriptRoot))'
@@ -29,7 +27,7 @@ function copyToShim($ext, $srcPath, $targetPath, $isNeedSh = $false, $isNeedPs1 
     $shTxt += $_br + '$path = Join-Path "$PSScriptRoot" "' + $srcPath + '"'
     $shTxt += $_br + 'if($myinvocation.expectingInput) { $input | & $path @args }'
     $shTxt += ' else { & $path @args }'
-    echo $shTxt > "${targetPath}.ps1"
+    [IO.File]::WriteAllLines("${targetPath}.ps1", $shTxt)
   }
 }
 

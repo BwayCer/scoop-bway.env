@@ -23,7 +23,13 @@ if (-not (Test-Path "$origEnvScoopPath\shims") -Or -not (Test-Path "$origEnvScoo
 if (-not (Test-Path "$Path\shims") -Or -not (Test-Path "$Path\apps\scoop")) {
   $runTimes = 0
   do {
-    $isUseThePath = Read-Host "Is to use ""$Path"" path [Y/N]"
+    try {
+      uname | Out-Null
+      echo "Is to use ""$Path"" path [Y/N]:"
+      $isUseThePath = Read-Host "input"
+    } catch {
+      $isUseThePath = Read-Host "Is to use ""$Path"" path [Y/N]"
+    }
     if ($isUseThePath -match "^(y|Y|yes|Yes)$") {
       break
     } elseif ($isUseThePath -match "^(n|N|no|No)$") {

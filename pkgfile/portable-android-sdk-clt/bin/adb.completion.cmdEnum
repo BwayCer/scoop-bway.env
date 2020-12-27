@@ -1,0 +1,139 @@
+#$ adb
+@ -a
+@ -d
+@ -e
+@ -s
+@ -t
+@ -H
+@ -P
+@ -L
+@ devices
+@ devices -l
+@ connect
+@ disconnect
+@ pair
+@ forward
+@ forward --list
+@ forward --no-rebind
+@ forward --remove
+@ forward --remove-all
+@ ppp
+@ reverse
+@ reverse --list
+@ reverse --no-rebind
+@ reverse --remove REMOTE
+@ reverse --remove-all
+@ mdns check
+@ mdns services
+@ pull
+@ pull --sync
+@ pull -n
+@ push -z any
+@ push -z none
+@ push -z brotli
+@ push -Z
+@ pull -a
+@ pull -z any
+@ pull -z none
+@ pull -z brotli
+@ pull -Z
+@ sync
+@ sync -l
+@ sync -z any
+@ sync -z none
+@ sync -z brotli
+@ sync -Z
+@ shell -e
+@ shell -n
+@ shell -T
+@ shell -t
+@ shell -tt
+@ shell -x
+@ install
+@ install -l
+@ install -r
+@ install -t
+@ install -s
+@ install -d
+@ install -g
+@ install -g
+@ install --abi
+@ install --instant
+@ install --no-streaming
+@ install --streaming
+@ install --fastdeploy
+@ install --no-fastdeploy
+@ install --force-agent
+@ install --date-check-agent
+@ install --version-check-agent
+@ install-multiple
+@ install-multiple -l
+@ install-multiple -r
+@ install-multiple -t
+@ install-multiple -s
+@ install-multiple -d
+@ install-multiple -g
+@ install-multiple -g
+@ install-multiple --abi
+@ install-multiple --instant
+@ install-multiple --no-streaming
+@ install-multiple --streaming
+@ install-multiple --fastdeploy
+@ install-multiple --no-fastdeploy
+@ install-multiple --force-agent
+@ install-multiple --date-check-agent
+@ install-multiple --version-check-agent
+@ install-multi-package
+@ install-multi-package -l
+@ install-multi-package -r
+@ install-multi-package -t
+@ install-multi-package -s
+@ install-multi-package -d
+@ install-multi-package -g
+@ install-multi-package -g
+@ install-multi-package --abi
+@ install-multi-package --instant
+@ install-multi-package --no-streaming
+@ install-multi-package --streaming
+@ install-multi-package --fastdeploy
+@ install-multi-package --no-fastdeploy
+@ install-multi-package --force-agent
+@ install-multi-package --date-check-agent
+@ install-multi-package --version-check-agent
+@ uninstall
+@ uninstall -k
+@ bugreport
+@ jdwp
+@ logcat
+@ logcat --help
+@ disable-verity
+@ enable-verity
+@ keygen
+@ wait-for-device
+@ wait-for-recovery
+@ wait-for-rescue
+@ wait-for-sideload
+@ wait-for-bootloader
+@ wait-for-disconnect
+@ get-state
+@ get-serialno
+@ get-devpath
+@ remount
+@ remount -R
+@ reboot
+@ reboot bootloader
+@ reboot recovery
+@ reboot sideload
+@ reboot sideload-auto-reboot
+@ reboot sideload
+@ root
+@ unroot
+@ usb
+@ tcpip
+@ start-server
+@ kill-server
+@ reconnect
+@ reconnect device
+@ reconnect offline
+@ version
+@ help

@@ -1,0 +1,60 @@
+{
+    "homepage": "https://developer.android.com/studio#command-tools",
+    "version": "6858069",
+    "description": "The basic Android command line tools.",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://developer.android.com/studio/terms.html"
+    },
+    "depends": "java/openjdk",
+    "url": "https://dl.google.com/android/repository/commandlinetools-win-6858069_latest.zip",
+    "hash": "d2f6c9bb7db0362995c0b8dd2fd5949ce23c1dccb7f9392350b5e29b6d5fec7d",
+    "installer": {
+        "script": [
+            "Move-Item \"$dir\\cmdline-tools\" \"$dir\\latest\"",
+            "New-Item \"$dir\\cmdline-tools\" -ItemType Directory | Out-Null",
+            "Move-Item \"$dir\\latest\" \"$dir\\cmdline-tools\""
+        ]
+    },
+    "env_add_path": "./cmdline-tools/latest/bin",
+    "env_set": {
+        "ANDROID_SDK_ROOT": "$dir",
+        "ANDROID_SDK_HOME": "$dir/sdkHome",
+        "ANDROID_AVD_HOME": "$dir/sdkHome/.android/avd"
+    },
+    "persist": [
+        "./add-ons",
+        "./build-tools",
+        "./cmake",
+        "./emulator",
+        "./extras",
+        "./licenses",
+        "./ndk-bundle",
+        "./ndk",
+        "./patcher",
+        "./platform-tools",
+        "./platforms",
+        "./skiaparser",
+        "./sources",
+        "./system-images",
+        "./sdkHome"
+    ],
+    "post_install": [
+        "if (-not (Test-Path \"$dir\\platform-tools\\adb.exe\")) {",
+        "    echo 'need to run `sdkmanager platform-tools`'",
+        "}",
+        "if (-not (Test-Path \"$dir\\emulator\\emulator.exe\")) {",
+        "    echo 'need to run `sdkmanager emulator`'",
+        "}"
+    ],
+    "checkver": {
+        "regex": "commandlinetools-win-(\\d+)"
+    },
+    "autoupdate": {
+        "url": "https://dl.google.com/android/repository/commandlinetools-win-$version_latest.zip",
+        "hash": {
+            "url": "https://developer.android.com/studio",
+            "find": "commandlinetools-win(?:.*\\n){3}.*<td>($sha256)"
+        }
+    }
+}

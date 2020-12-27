@@ -56,6 +56,7 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
   * [portable.sh](./bin/portable.sh): 可攜版程式包的定型化可攜命令。
   * [scoop.portable.ps1](./bin/scoop.portable.ps1): Scoop 可攜版。
   * [shTemplate](./bin/shTemplate): 文本樣板腳本。
+  * [shbase.aless.sh](./bin/shbase.aless.sh): 腳本基礎程式包。
   * [ysBashComplete](./bin/ysBashComplete): 命令列舉自動補齊。
   * [surfaceKeyboardLayout.reg](./bin/surfaceKeyboardLayout.reg): Surface 的鍵盤布局。
 * 程式桶

@@ -1,12 +1,6 @@
 # 安裝 Scoop
 
 
-# 以 UTF-8 編碼格式輸出
-$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
-# 輸出時不增加 CRLF 換行符的新行
-$PSDefaultParameterValues['Out-File:NoNewline'] = $true
-
-
 param($paramScoopPath, $paramScoopGlobalPath)
 
 
@@ -49,7 +43,8 @@ iwr get.scoop.sh | iex
 scoop install sudo git
 
 # 設定命令行視窗外觀
-"
+# 比 `Out-File` 使用上更好輸出 UTF-8 no Bom
+[IO.File]::WriteAllLines("$HOME\.minttyrc", "
 BoldAsFont=-1
 Locale=zh_TW
 Charset=UTF-8
@@ -65,9 +60,7 @@ BackgroundColour=48,48,48
 FontSmoothing=default
 AllowBlinking=no
 RightClickAction=menu
-CursorColour=255,255,255
-
-" > $HOME\.minttyrc
+CursorColour=255,255,255")
 
 
 ## 安裝 WSLtty

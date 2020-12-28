@@ -29,6 +29,8 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installTer
 ```ps1
 # 安裝 bway 程式桶
 scoop bucket add bway https://raw.githubusercontent.com/BwayCer/scoop-bway.env
+# 安裝預設執行命令
+$env:SCOOP\buckets\bway\bin\linkBinToScoop.ps1
 
 # 安裝常用程式包
 iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCommonPackages.ps1 | iex
@@ -50,6 +52,10 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
 
 
 * 可執行文件
+  * [portable.ps1](./bin/portable.ps1): 可攜版程式包的定型化可攜命令。
+  * [ps1.sh](./bin/ps1.sh): 在 mintty 中另開 PowerShell 執行命令。
+  * [scoop.portable.ps1](./bin/scoop.portable.ps1): Scoop 可攜版。
+  * [ysBashComplete](./bin/ysBashComplete): 命令列舉自動補齊。
   * [surfaceKeyboardLayout.reg](./bin/surfaceKeyboardLayout.reg): Surface 的鍵盤布局。
 * 程式桶
   * [`bway/ultimate-windows-context-menu-customizer`](./looseLeaf/bucket/ultimate-windows-context-menu-customizer.md): Windows Context Menu 訂製工具。

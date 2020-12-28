@@ -1,0 +1,39 @@
+{
+    "homepage": "https://github.com/BwayCer",
+    "version": "1.6",
+    "url": "https://gist.github.com/lukesampson/6446238/raw/hello.ps1",
+    "bin": "hello.ps1",
+    "pre_install": [
+        "echo \"bway pre installer\"",
+        "$pkgDir = \"$(appdir $app $global)\"",
+        "echo \"dir: $dir\"",
+        "echo \"app: $app\"",
+        "echo \"fname: $fname\"",
+        "echo \"pkgDir: $pkgDir\"",
+        "echo \"global: $global\"",
+        "echo \"appdir dark: $(appdir dark)\"",
+        "echo \"appdir dark g: $(appdir dark true)\"",
+        "echo \"appdir hello: $(appdir hello $global)\""
+    ],
+    "installer": {
+        "script": [
+            "echo \"bway installer\"",
+            "echo \"dir: $dir\"",
+            "echo \"origDir: $persist_dir\"",
+            "echo \"appdir hello: $(appdir hello $global)\""
+        ]
+    },
+    "post_install": [
+        "echo \"bway post installer\"",
+        "echo \"dir: $dir\"",
+        "echo \"origDir: $persist_dir\"",
+        "echo \"appdir hello: $(appdir hello $global)\"",
+        "echo \"appdir hello: $(appdir hello $global)\"",
+        "if (Test-Path \"$dir\\..\\current\") {",
+        "    echo \"$dir\\..\\current\"",
+        "}",
+        "if (Test-Path \"$(appdir hello $global)\") {",
+        "    echo \"appdir dark g\"",
+        "}"
+    ]
+}

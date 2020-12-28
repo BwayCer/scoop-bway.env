@@ -36,6 +36,7 @@ function copyToShim($ext, $srcPath, $targetPath, $isNeedSh = $false, $isNeedPs1 
 
 @(
   ("scoop.portable",  "ps1", $true, $true,  "scoop.portable.ps1"),
+  ("shTemplate",      "sh",  $true, $false, "shTemplate"),
   ("ysBashComplete",  "sh",  $true, $false, "ysBashComplete"),
   ("portable",        "ps1", $false, $true, "portable.ps1"),
   ("portable.sh",     "ps1", $true, $false, "portable.ps1")

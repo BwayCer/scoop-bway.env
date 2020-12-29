@@ -1,0 +1,13 @@
+#$ dart
+@ --help
+@ --verbose
+@ --version
+@ --enable-analytics
+@ --disable-analytics
+@ analyze
+@ compile
+@ create
+@ format
+@ pub
+@ run
+@ test

@@ -59,6 +59,7 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
   * [surfaceKeyboardLayout.reg](./bin/surfaceKeyboardLayout.reg): Surface 的鍵盤布局。
 * 程式桶
   * [`bway/portable-android-sdk-clt`](./looseLeaf/bucket/android-sdk-clt.md): Android 命令行工具。
+  * [`bway/portable-flutter`](./looseLeaf/bucket/flutter.md): Google 的移動應用程式軟體開發套件
   * [`bway/ultimate-windows-context-menu-customizer`](./looseLeaf/bucket/ultimate-windows-context-menu-customizer.md): Windows Context Menu 訂製工具。
 
 

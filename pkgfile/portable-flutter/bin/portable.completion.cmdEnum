@@ -1,0 +1,10 @@
+#$ portable-flutter
+@ --help
+@ setEnv
+@ setEnv --restore
+@ setEnv --help
+@ exportEnv
+@ exportEnv --restore
+@ exportEnv --help
+@ completion
+@ completion --help

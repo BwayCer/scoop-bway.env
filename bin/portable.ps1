@@ -43,13 +43,15 @@ function fnSh_main_completion() {
     return
   }
 
-  $txt =        "if type __ysBashComplete_register &> /dev/null ; then"
-  $txt += $_br + "  echo 'Not found `__ysBashComplete_register` command.' >&2"
-  $txt += $_br + "  exit 1"
-  $txt += $_br + "fi"
+  $txt =            "if type __ysBashComplete_register &> /dev/null ; then"
+
   Get-ChildItem $completionFilePathTxt | ForEach-Object {
-    $txt += $_br + ("__ysBashComplete_register '{0}'" -f $_)
+    $txt += $_br + ("  __ysBashComplete_register '{0}'" -f $_)
   }
+
+  $txt +=   $_br + "else"
+  $txt +=   $_br + "  echo 'Not found `__ysBashComplete_register` command.' >&2"
+  $txt +=   $_br + "fi"
   echo $txt
 }
 

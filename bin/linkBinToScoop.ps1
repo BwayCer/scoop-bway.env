@@ -35,10 +35,11 @@ function copyToShim($ext, $srcPath, $targetPath, $isNeedSh = $false, $isNeedPs1 
 @(
   ("ps1.sh",          "sh",  $true, $false, "ps1.sh"),
   ("scoop.portable",  "ps1", $true, $true,  "scoop.portable.ps1"),
-  ("ysBashComplete",  "sh",  $true, $false, "ysBashComplete"),
   ("portable",        "ps1", $false, $true, "portable.ps1"),
   ("portable.sh",     "ps1", $true, $false, "portable.ps1")
 ) | ForEach-Object {
   copyToShim $_[1] ("$binRelativePath\{0}" -f $_[4]) ("$shimsDirPath\{0}" -f $_[0]) $_[2] $_[3]
 }
+
+Copy-Item "$PSScriptRoot\ysBashComplete" "$shimsDirPath\ysBashComplete" -Force
 

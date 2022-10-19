@@ -1,4 +1,0 @@
-JAVA_HOME={{dir}}\openjdk
-ANDROID_SDK_ROOT={{dir}}
-ANDROID_SDK_HOME={{dir}}\sdkHome
-ANDROID_AVD_HOME={{dir}}\sdkHome\.android\avd

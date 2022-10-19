@@ -1,0 +1,86 @@
+{
+  "homepage": "https://developer.android.com/studio#command-tools",
+  "version": "8512546",
+  "description": "The basic Android command line tools.",
+  "license": {
+    "identifier": "Freeware",
+    "url": "https://developer.android.com/studio/terms.html"
+  },
+  "suggest": {
+    "java": ["java/openjdk", "java/openjdk18"]
+  },
+  "env_set": {
+    "ANDROID_SDK_ROOT": "$dir",
+    "ANDROID_SDK_HOME": "$dir/sdkHome",
+    "ANDROID_AVD_HOME": "$dir/sdkHome/.android/avd",
+    "GRADLE_USER_HOME": "$dir/sdkHome/gradle"
+  },
+  "bin": [
+    [
+      "./bin/adb.ps1",
+      "adb"
+    ],
+    [
+      "./bin/emulator.ps1",
+      "emulator"
+    ],
+    [
+      "./bin/fastboot.ps1",
+      "fastboot"
+    ],
+    [
+      "./cmdline-tools/latest/bin/apkanalyzer.bat",
+      "apkanalyzer"
+    ],
+    [
+      "./cmdline-tools/latest/bin/avdmanager.bat",
+      "avdmanager"
+    ],
+    [
+      "./cmdline-tools/latest/bin/sdkmanager.bat",
+      "sdkmanager"
+    ]
+  ],
+  "persist": [
+    "./build-tools",
+    "./emulator",
+    "./licenses",
+    "./platform-tools",
+    "./platforms",
+    "./system-images",
+    "./sdkHome"
+  ],
+  "url": "https://dl.google.com/android/repository/commandlinetools-win-8512546_latest.zip",
+  "hash": "9cea28ab5d8c2f4b607f91f1475c4f352f42702c42f53eee1e331d9e36eea572",
+  "extract_dir": "cmdline-tools",
+  "extract_to": "cmdline-tools\\latest",
+  "installer": {
+    "script": [
+      "$version = 7.0",
+      "$latestToolPath = \"$dir\\cmdline-tools\\latest\"",
+      "$currentToolPath = \"$dir\\cmdline-tools\\$version\"",
+      "Move-Item \"$latestToolPath\" \"$currentToolPath\"",
+      "New-Item \"$latestToolPath\" -ItemType Junction -Target \"$currentToolPath\" | Out-Null",
+      "",
+      "$toolBinPath = \"$dir\\bin\"",
+      "$pkgfileUrl = \"https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/pkgfile/$app\"",
+      "if (-not (Test-Path \"$toolBinPath\")) {",
+      "  New-Item \"$toolBinPath\" -ItemType Directory | Out-Null",
+      "}",
+      "@('adb.ps1', 'fastboot.ps1', 'emulator.ps1'",
+      ") | ForEach-Object {",
+      "  Invoke-WebRequest \"$pkgfileUrl/$_\" -OutFile \"$toolBinPath\\$_\"",
+      "}"
+    ]
+  },
+  "checkver": {
+    "regex": "commandlinetools-win-(\\d+)"
+  },
+  "autoupdate": {
+    "url": "https://dl.google.com/android/repository/commandlinetools-win-$version_latest.zip",
+    "hash": {
+      "url": "https://developer.android.com/studio",
+      "find": "commandlinetools-win(?:.*\\n){3}.*<td>($sha256)"
+    }
+  }
+}

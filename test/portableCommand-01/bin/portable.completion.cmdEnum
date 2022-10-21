@@ -1,0 +1,10 @@
+#$ portable-pkg
+@ --help
+@ setEnv
+@ setEnv --restore
+@ setEnv --help
+@ exportEnv
+@ exportEnv --restore
+@ exportEnv --help
+@ completion
+@ completion --help

@@ -1,4 +1,4 @@
-#$ portable
+#$ portable-pkg
 @ --help
 @ setEnv
 @ setEnv --restore

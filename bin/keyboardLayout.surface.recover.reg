@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+; Surface 的鍵盤布局 - 復原
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,\
+                   00,00,00,00,\
+                   05,00,00,00,\
+                   5D,E0,5D,E0,\
+                   4B,E0,4B,E0,\
+                   4D,E0,4D,E0,\
+                   1D,E0,1D,E0,\
+                   00,00,00,00
+; Application (5D,E0) -> self
+; Left Arrow  (4B,E0) -> self
+; Right Arrow (4D,E0) -> self
+; Right Ctrl  (1D,E0) -> self
+

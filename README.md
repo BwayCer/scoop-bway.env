@@ -1,16 +1,13 @@
 本微視窗程式集
 =======
 
-
 我的 W$ 環境。
 
 命令行以 git-bash 為主，並搭配 powershell、cmd 穿插使用。<br>
 程式包管理工具使用 [Scoop](https://scoop.sh)。
 
 
-
 ## Scoop 安裝方式
-
 
 **安裝命令行：**
 
@@ -23,7 +20,6 @@
 iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installTerminal.ps1 | iex
 ```
 
-
 **推薦安裝：**
 
 ```ps1
@@ -33,7 +29,6 @@ scoop bucket add bway https://raw.githubusercontent.com/BwayCer/scoop-bway.env
 # 安裝常用程式包
 iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCommonPackages.ps1 | iex
 ```
-
 
 **相關說明：**
 
@@ -45,9 +40,7 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
     建議使用 `scoop install <bucket>/<package>` 的命令方式。
 
 
-
 ## 管理的程式集
-
 
 * 可執行文件
   * [scoop.portable.ps1](./bin/scoop.portable.ps1): Scoop 可攜版。
@@ -56,9 +49,7 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
   * [`bway/android-clt`](./looseLeaf/bucket/android-clt.md): Android SDK 命令工具。
 
 
-
 ## 活頁筆記
-
 
 * 視窗語法
   * [鍵盤布局登入文件](./looseLeaf/windowsCode/keyboardLayoutRegistry.md)

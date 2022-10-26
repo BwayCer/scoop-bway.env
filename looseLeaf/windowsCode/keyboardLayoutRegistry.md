@@ -1,20 +1,16 @@
 鍵盤布局登入文件
 =======
 
-
 修改登入文件已變更鍵盤布局。
 
 
 ## 使用方式
 
-
 將下述寫法說明並以副檔名 `.reg` 文件儲存，
 然後執行該文件即可變更鍵盤布局。
 
 
-
 ### 寫法
-
 
 範例：
 
@@ -52,9 +48,7 @@ Windows Registry Editor Version 5.00
 ```
 
 
-
 ### 按鍵對應表:
-
 
 ```text
 (ARK = Arrow Keys)
@@ -141,9 +135,7 @@ SC    Key                        SC    Key                       SC    Key
 ```
 
 
-
 ## 參考
-
 
 * https://superuser.com/questions/1190329
 * 按鍵對應表

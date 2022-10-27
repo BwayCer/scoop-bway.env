@@ -26,13 +26,19 @@ if (-not ($allowExecutionPolicyList -contains $currExecutionPolicy)) {
     $scoopPath = $env:SCOOP
   } else {
     # 設定 Scoop 安裝程式包目錄路徑.
+    $userEnvSCOOP = [Environment]::GetEnvironmentVariable('SCOOP', 'User')
+    $userEnvSCOOPGLOBAL = [Environment]::GetEnvironmentVariable('SCOOP_GLOBAL', 'User')
     if ($paramScoopPath -ne $null) {
       $scoopPath = $paramScoopPath
+    } elseif ($userEnvSCOOP -ne $null) {
+      $scoopPath = $userEnvSCOOP
     } else {
       $scoopPath = $defaultScoopPath
     }
     if ($paramScoopGlobalPath -ne $null) {
       $scoopGlobalPath = $paramScoopGlobalPath
+    } elseif ($userEnvSCOOPGLOBAL -ne $null) {
+      $scoopGlobalPath = $userEnvSCOOPGLOBAL
     }
 
     # 設定環境變量.

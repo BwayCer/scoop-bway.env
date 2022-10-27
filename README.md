@@ -41,7 +41,8 @@ uninstallScoopByBway.ps1
   * [installScoopByBway.ps1](./bin/installScoopByBway.ps1): 安裝 Scoop & Bway bucket。
   * [uninstallScoopByBway.ps1](./bin/uninstallScoopByBway.ps1): 解除安裝Scoop。
   * [scoop.portable.ps1](./bin/scoop.portable.ps1): Scoop可攜版。
-  * [surfaceKeyboardLayout.reg](./bin/surfaceKeyboardLayout.reg): Surface的鍵盤布局。
+  * [keyboardLayout.surface.change.reg](./bin/keyboardLayout.surface.change.reg): 變更Surface的鍵盤布局。
+  * [keyboardLayout.surface.recover.reg](./bin/keyboardLayout.surface.recover.reg): 恢復原始Surface的鍵盤布局。
 * 程式桶
   * [`bway/android-clt`](./looseLeaf/bucket/android-clt.md): Android SDK 命令工具。
   * [`java/openjdk`](https://github.com/ScoopInstaller/Java/blob/master/bucket/openjdk.json)

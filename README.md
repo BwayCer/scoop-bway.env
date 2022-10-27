@@ -9,25 +9,20 @@
 
 ## Scoop 安裝方式
 
-**安裝命令行：**
+**安裝/解除安裝：**
 
-```ps1
-# 設定 Scoop 安裝程式包目錄路徑
-# $scoopPath       = "$HOME\scoop"
-# $scoopGlobalPath = "" # 若未賦值則不設置
-# 預設安裝程式桶: extras
-# 預設安裝程式包: git, wsltty
-iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installTerminal.ps1 | iex
-```
+```powershell
+## 安裝
+# 預設配置
+# - Scoop 安裝程式包目錄路徑
+#     $scoopPath       = "$HOME\Desktop\apps\scoop"
+#     $scoopGlobalPath = "" # 不設置全域路徑
+# - 程式桶: bway
+# - 程式包: sudo, git
+iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installScoopByBway.ps1 | iex
 
-**推薦安裝：**
-
-```ps1
-# 安裝 bway 程式桶
-scoop bucket add bway https://raw.githubusercontent.com/BwayCer/scoop-bway.env
-
-# 安裝常用程式包
-iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCommonPackages.ps1 | iex
+## 解除安裝
+uninstallScoopByBway.ps1
 ```
 
 **相關說明：**
@@ -43,10 +38,13 @@ iwr https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/bin/installCom
 ## 管理的程式集
 
 * 可執行文件
-  * [scoop.portable.ps1](./bin/scoop.portable.ps1): Scoop 可攜版。
-  * [surfaceKeyboardLayout.reg](./bin/surfaceKeyboardLayout.reg): Surface 的鍵盤布局。
+  * [installScoopByBway.ps1](./bin/installScoopByBway.ps1): 安裝 Scoop & Bway bucket。
+  * [uninstallScoopByBway.ps1](./bin/uninstallScoopByBway.ps1): 解除安裝Scoop。
+  * [scoop.portable.ps1](./bin/scoop.portable.ps1): Scoop可攜版。
+  * [surfaceKeyboardLayout.reg](./bin/surfaceKeyboardLayout.reg): Surface的鍵盤布局。
 * 程式桶
   * [`bway/android-clt`](./looseLeaf/bucket/android-clt.md): Android SDK 命令工具。
+  * [`java/openjdk`](https://github.com/ScoopInstaller/Java/blob/master/bucket/openjdk.json)
 
 
 ## 活頁筆記

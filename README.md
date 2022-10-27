@@ -3,7 +3,7 @@
 
 我的 W$ 環境。
 
-命令行以 git-bash 為主，並搭配 powershell、cmd 穿插使用。<br>
+使用 Windows Terminal 搭配 WSL 為主。<br>
 程式包管理工具使用 [Scoop](https://scoop.sh)。
 
 

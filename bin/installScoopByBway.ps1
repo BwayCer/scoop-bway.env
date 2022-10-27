@@ -50,6 +50,10 @@ if (-not ($allowExecutionPolicyList -contains $currExecutionPolicy)) {
       [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $scoopGlobalPath, 'User')
     }
 
+    if (-not (Test-Path $scoopPath)) {
+      New-Item $scoopPath -ItemType Directory
+    }
+
     # 安裝 Scoop
     # Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
     # or

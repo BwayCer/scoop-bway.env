@@ -1,0 +1,28 @@
+{
+  "homepage": "https://sikulix.github.io/",
+  "version": "2.0.5",
+  "description": "Visual Automation and Testing",
+  "license": "MIT",
+  "suggest": {
+    "java": "java/openjdk"
+  },
+  "bin": [
+    ["PowerShell.exe", "sikulix", "java.exe -jar \"$dir\\sikulixide-2.0.5-win.jar\""]
+  ],
+  "url": "https://launchpad.net/sikuli/sikulix/2.0.5/+download/sikulixide-2.0.5-win.jar",
+  "hash": "26eb62e1e6099e72d752affee371eb8e370579ca5c6f54c98ea62289632fcc8e",
+  "checkver": {
+    "url": "https://raiman.github.io/SikuliX1/downloads.html",
+    "regex": "Version ([\\d.]+) \\(latest stable version\\)"
+  },
+  "autoupdate": {
+    "url": "https://launchpad.net/sikuli/sikulix/$version/+download/sikulixide-$version-win.jar",
+    "bin": [
+      [
+        "PowerShell.exe",
+        "sikulix",
+        "java.exe -jar \"$dir\\sikulixide-$version-win.jar\""
+      ]
+    ]
+  }
+}

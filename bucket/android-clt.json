@@ -16,30 +16,12 @@
     "GRADLE_USER_HOME": "$dir/sdkHome/gradle"
   },
   "bin": [
-    [
-      "./bin/adb.ps1",
-      "adb"
-    ],
-    [
-      "./bin/emulator.ps1",
-      "emulator"
-    ],
-    [
-      "./bin/fastboot.ps1",
-      "fastboot"
-    ],
-    [
-      "./cmdline-tools/latest/bin/apkanalyzer.bat",
-      "apkanalyzer"
-    ],
-    [
-      "./cmdline-tools/latest/bin/avdmanager.bat",
-      "avdmanager"
-    ],
-    [
-      "./cmdline-tools/latest/bin/sdkmanager.bat",
-      "sdkmanager"
-    ]
+    "./bin/adb.ps1",
+    "./bin/emulator.ps1",
+    "./bin/fastboot.ps1",
+    "./cmdline-tools/latest/bin/apkanalyzer.bat",
+    "./cmdline-tools/latest/bin/avdmanager.bat",
+    "./cmdline-tools/latest/bin/sdkmanager.bat"
   ],
   "persist": [
     "./build-tools",
@@ -56,20 +38,20 @@
   "extract_to": "cmdline-tools\\latest",
   "installer": {
     "script": [
-      "$version = 7.0",
+      "$version = '7.0'",
       "$latestToolPath = \"$dir\\cmdline-tools\\latest\"",
       "$currentToolPath = \"$dir\\cmdline-tools\\$version\"",
       "Move-Item \"$latestToolPath\" \"$currentToolPath\"",
       "New-Item \"$latestToolPath\" -ItemType Junction -Target \"$currentToolPath\" | Out-Null",
       "",
-      "$toolBinPath = \"$dir\\bin\"",
-      "$pkgfileUrl = \"https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/pkgfile/$app\"",
-      "if (-not (Test-Path \"$toolBinPath\")) {",
-      "  New-Item \"$toolBinPath\" -ItemType Directory | Out-Null",
+      "$pkgDirPath = \"$bucketsdir\\bway\\pkgfile\\$app\"",
+      "$appBinPath = \"$dir\\bin\"",
+      "if (-not (Test-Path \"$appBinPath\")) {",
+      "  New-Item \"$appBinPath\" -ItemType Directory | Out-Null",
       "}",
       "@('adb.ps1', 'fastboot.ps1', 'emulator.ps1'",
       ") | ForEach-Object {",
-      "  Invoke-WebRequest \"$pkgfileUrl/$_\" -OutFile \"$toolBinPath\\$_\"",
+      "  Copy-Item \"$pkgDirPath\\$_\" \"$appBinPath\" -Force",
       "}"
     ]
   },

@@ -23,7 +23,7 @@ Intel HAXM
 ## 問與答
 
 
-##### 有沒有其他虛擬機的硬體加速器？
+#### 有沒有其他虛擬機的硬體加速器？
 
 可見 [Microsoft Docs 硬體加速以提升模擬器效能 (Hyper-V 與 HAXM)](https://docs.microsoft.com/zh-tw/xamarin/android/get-started/installation/android-emulator/hardware-acceleration)
 文章。

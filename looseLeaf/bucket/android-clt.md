@@ -50,7 +50,7 @@ Android SDK Command Tools
 ## 問與答
 
 
-##### 如何不帶 `--sdk_root` 選項執行 `sdkmanager` 命令？
+#### 如何不帶 `--sdk_root` 選項執行 `sdkmanager` 命令？
 
 參考 [MICROAU 大大的說明](https://blog.csdn.net/zhufu86/article/details/106747556)，
 只需要調整 `ANDROID_SDK_ROOT` 的目錄結構即可改善此問題。
@@ -72,7 +72,7 @@ Android SDK Command Tools
 ```
 
 
-##### Gradle需搭配合適的Java版本才能正常使用
+#### Gradle需搭配合適的Java版本才能正常使用
 
 關於Gradle與Java對應版本請見：
 [docs.gradle.org: Compatibility Matrix](https://docs.gradle.org/current/userguide/compatibility.html)

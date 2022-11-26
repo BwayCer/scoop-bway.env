@@ -114,6 +114,28 @@ unset tmpNewPathTxt tmpWinPathTxt
 之後再透過 GitHub Action 打包成各平台執行文件也是可選的方案之一。
 
 
+#### `Unable to locate Android SDK.` 問題？
+
+如果有以下訊息：
+
+```
+[!] Android toolchain - develop for Android devices
+    X Unable to locate Android SDK.
+      ...
+
+    X No valid Android SDK platforms found in C:\path\to\ANDROID_SDK_ROOT\platforms. Directory was
+      empty.
+```
+
+則請安裝 `build-tools` 及 `platforms` 工具程式包。
+
+```
+# 請自行下載最新版本
+sdkmanager "build-tools;30.0.3"
+sdkmanager "platforms;android-30"
+```
+
+
 ## 修改紀錄
 
 * 2022.12.03 Android 工具改為可選安裝、處理 WSL 與 Windows 整合。

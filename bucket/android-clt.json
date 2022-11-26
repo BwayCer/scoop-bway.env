@@ -11,26 +11,26 @@
   },
   "env_set": {
     "ANDROID_SDK_ROOT": "$dir",
-    "ANDROID_SDK_HOME": "$dir/sdkHome",
-    "ANDROID_AVD_HOME": "$dir/sdkHome/.android/avd",
-    "GRADLE_USER_HOME": "$dir/sdkHome/gradle"
+    "ANDROID_SDK_HOME": "$dir\\sdkHome",
+    "ANDROID_AVD_HOME": "$dir\\sdkHome\\.android\\avd",
+    "GRADLE_USER_HOME": "$dir\\sdkHome\\gradle"
   },
   "bin": [
-    "./bin/adb.ps1",
-    "./bin/emulator.ps1",
-    "./bin/fastboot.ps1",
-    "./cmdline-tools/latest/bin/apkanalyzer.bat",
-    "./cmdline-tools/latest/bin/avdmanager.bat",
-    "./cmdline-tools/latest/bin/sdkmanager.bat"
+    "bin\\adb.ps1",
+    "bin\\emulator.ps1",
+    "bin\\fastboot.ps1",
+    "cmdline-tools\\latest\\bin\\apkanalyzer.bat",
+    "cmdline-tools\\latest\\bin\\avdmanager.bat",
+    "cmdline-tools\\latest\\bin\\sdkmanager.bat"
   ],
   "persist": [
-    "./build-tools",
-    "./emulator",
-    "./licenses",
-    "./platform-tools",
-    "./platforms",
-    "./system-images",
-    "./sdkHome"
+    "build-tools",
+    "emulator",
+    "licenses",
+    "platform-tools",
+    "platforms",
+    "system-images",
+    "sdkHome"
   ],
   "url": "https://dl.google.com/android/repository/commandlinetools-win-8512546_latest.zip",
   "hash": "9cea28ab5d8c2f4b607f91f1475c4f352f42702c42f53eee1e331d9e36eea572",

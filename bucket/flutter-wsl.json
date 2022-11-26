@@ -6,13 +6,13 @@
   "depends": "bway/android-clt",
   "env_add_path": "bin",
   "env_set": {
-    "FLUTTER_ROOT": "$dir/flutter",
-    "PUB_CACHE": "$dir/.pub-cache"
+    "FLUTTER_ROOT": "$dir\\flutter",
+    "PUB_CACHE": "$dir\\.pub-cache"
   },
   "persist": [
-    "./.pub-cache",
-    "./bin/cache.unix",
-    "./bin/cache.win"
+    ".pub-cache",
+    "bin\\cache.unix",
+    "bin\\cache.win"
   ],
   "url": "https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/empty.txt",
   "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

@@ -45,11 +45,15 @@ uninstallScoopByBway.ps1
   * [keyboardLayout.surface.recover.reg](./bin/keyboardLayout.surface.recover.reg): 恢復原始Surface的鍵盤布局。
 * 程式桶
   * [`bway/android-clt`](./looseLeaf/bucket/android-clt.md): Android SDK 命令工具。
-  * [`java/openjdk`](https://github.com/ScoopInstaller/Java/blob/master/bucket/openjdk.json)
 
 
 ## 活頁筆記
 
 * 視窗語法
   * [鍵盤布局登入文件](./looseLeaf/windowsCode/keyboardLayoutRegistry.md)
+
+
+## 推薦程式桶
+
+* [`java/openjdk`](https://github.com/ScoopInstaller/Java/blob/master/bucket/openjdk.json)
 

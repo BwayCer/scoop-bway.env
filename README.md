@@ -45,6 +45,7 @@ uninstallScoopByBway.ps1
   * [keyboardLayout.surface.recover.reg](./bin/keyboardLayout.surface.recover.reg): 恢復原始Surface的鍵盤布局。
 * 程式桶
   * [`bway/android-clt`](./looseLeaf/bucket/android-clt.md): Android SDK 命令工具。
+  * [`bway/flutter-wsl`](./looseLeaf/bucket/flutter-wsl.md): Flutter 跨平台圖形介面開發工具。
 
 
 ## 活頁筆記

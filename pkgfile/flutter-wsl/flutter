@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# Flutter WSL 適應腳本 Unix & Shell 環境
+
+
+set -e
+
+
+case "$1" in
+  unix )
+    shift
+    ;;
+  win | pub | doctor | devices | run )
+    [ "$1" == "win" ] && shift || :
+    PowerShell.exe flutter.ps1 "$@"
+    exit $?
+    ;;
+esac
+
+
+# 文件路徑資訊
+__filename=`realpath "$0"`
+_dirsh=`dirname "$__filename"`
+
+
+# 環境變數
+export PUB_CACHE=`realpath "$_dirsh/../.pub-cache"`
+
+
+cacheUnixDirPath="$_dirsh/cache.unix"
+cacheWinDirPath="$_dirsh/cache.win"
+
+flutterBinDirPath=`realpath "$_dirsh/../flutter/bin"`
+cacheDirPath="$flutterBinDirPath/cache"
+dartSdkDirPath="$cacheDirPath/dart-sdk/bin"
+dartUnixPath="$dartSdkDirPath/dart"
+dartWinPath="$dartSdkDirPath/dart.exe"
+
+
+if [ -d "$cacheDirPath" ] && [ ! -L "$cacheDirPath" ]; then
+  if [ -x "$dartUnixPath" ]; then
+    mv "$cacheDirPath" "$cacheUnixDirPath"
+  elif [ -x "$dartWinPath" ]; then
+    mv "$cacheDirPath" "$cacheWinDirPath"
+  fi
+fi
+if [ ! -x "$dartUnixPath" ]; then
+  if [ -d "$cacheDirPath" ] && [ -L "$cacheDirPath" ]; then
+    rm "$cacheDirPath"
+  fi
+  if [ -d "$cacheDirPath" ]; then
+    echo "無法判斷 cache 文件的重要性 ($cacheDirPath)。" >&2
+    exit 1
+  fi
+  if [ -e "$cacheUnixDirPath" ]; then
+    ln -s "$cacheUnixDirPath" "$cacheDirPath"
+  else
+    echo "cache folder for Unix 不存在。" >&2
+    exit 1
+  fi
+fi
+if [ ! -x "$dartUnixPath" ]; then
+  echo "dart for Unix 不存在。" >&2
+  exit 1
+fi
+
+
+case "$1" in
+  dart )
+    shift
+    "$flutterBinDirPath/dart" "$@"
+    ;;
+  dartaotruntime )
+    shift
+    "$flutterBinDirPath/cache/dart-sdk/bin/dartaotruntime" "$@"
+    ;;
+  create )
+    shift
+    "$flutterBinDirPath/flutter" create --no-pub "$@"
+    ;;
+  * )
+    "$flutterBinDirPath/flutter" "$@"
+    ;;
+esac
+

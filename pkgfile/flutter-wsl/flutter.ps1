@@ -11,18 +11,18 @@ $cacheWinDirPath="$PSScriptRoot\cache.win"
 
 $flutterBinDirPath="$PSScriptRoot\..\flutter\bin"
 $cacheDirPath = "$flutterBinDirPath\cache"
-$dartSdkDirPath = "$cacheDirPath\dart-sdk\bin"
-$dartUnixPath = "$dartSdkDirPath\dart"
-$dartWinPath = "$dartSdkDirPath\dart.exe"
 
 
-if (-not (Test-Path $dartWinPath)) {
-  # $cacheDirPath 路徑下若未存在 $dartUnixPath 或 $dartWinPath 文件
-  # 則判斷為可刪除文件。.
-  if ((Test-Path $cacheDirPath) -and -not (Test-Path $dartUnixPath)) {
+# 若 $cacheDirPath 路徑存在鏈結文件，
+# 則更新其鏈結指向 $cacheWinDirPath 路徑。
+# 若遇非鏈結文件，則拋出無法處理的錯誤。
+# 若 $cacheWinDirPath 路徑不存在，則拋出文件不存在的錯誤。
+$cacheDirItem = Get-Item $cacheDirPath 2> $null
+if ($cacheDirItem.Target -ne $cacheWinDirPath) {
+  if ($cacheDirItem.LinkType -eq "Junction") {
+    fsutil reparsepoint delete $cacheDirItem
     Remove-Item $cacheDirPath
-  }
-  if (Test-Path $cacheDirPath) {
+  } elseif (Test-Path $cacheDirPath) {
     throw "Unable to judge the importance of the cache file. ($cacheDirPath)"
   }
   if (Test-Path $cacheWinDirPath) {
@@ -30,9 +30,6 @@ if (-not (Test-Path $dartWinPath)) {
   } else {
     throw "cache folder for Win not found."
   }
-}
-if (-not (Test-Path $dartWinPath)) {
-  throw "dart for Win not found."
 }
 
 

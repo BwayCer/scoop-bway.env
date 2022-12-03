@@ -1,0 +1,6 @@
+#!/bin/sh
+# ../apps/flutter-wsl/current/bin/flutter
+__filename=`realpath "$0"`
+_dirsh=`dirname "$__filename"`
+`realpath "$_dirsh/../apps/flutter-wsl/current/bin/flutter"` "$@"
+

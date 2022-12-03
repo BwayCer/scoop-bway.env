@@ -4,11 +4,13 @@
   "description": "Google's SDK for crafting beautiful, fast user experiences for mobile, web, and desktop from a single codebase.",
   "license": "BSD-3-Clause",
   "depends": "bway/android-clt",
-  "env_add_path": "bin",
   "env_set": {
     "FLUTTER_ROOT": "$dir\\flutter",
     "PUB_CACHE": "$dir\\.pub-cache"
   },
+  "bin": [
+    "bin\\flutter.ps1"
+  ],
   "persist": [
     ".pub-cache",
     "bin\\cache.unix",
@@ -47,12 +49,8 @@
     ]
   },
   "post_install": [
-    "$pkgDirPath = \"$bucketsdir\\bway\\pkgfile\\$app\"",
-    "$appBinPath = \"$dir\\bin\"",
-    "@('cache.unix', 'cache.win') | ForEach-Object {",
-    "  if (-not (Test-Path \"$appBinPath\\$_\\dart-sdk\")) {",
-    "    Copy-Item \"$pkgDirPath\\$_\\*\" \"$appBinPath\\$_\" -Force -Recurse",
-    "  }",
-    "}"
+    "$pkgUrlPath = \"https://raw.githubusercontent.com/BwayCer/scoop-bway.env/main/pkgfile/$app\"",
+    "$shimsPath = \"$dir\\..\\..\\..\\shims\"",
+    "Invoke-WebRequest \"$pkgUrlPath\\shims-flutter\" -OutFile \"$shimsPath\\flutter\""
   ]
 }

@@ -5,21 +5,22 @@
 set -e
 
 
-case "$1" in
-  unix )
-    shift
-    ;;
-  win | pub | doctor | devices | run )
-    [ "$1" == "win" ] && shift || :
-    PowerShell.exe flutter.ps1 "$@"
-    exit $?
-    ;;
-esac
-
-
 # 文件路徑資訊
 __filename=`realpath "$0"`
 _dirsh=`dirname "$__filename"`
+
+
+case "$1" in
+  wino )
+    shift
+    ;;
+  win | pub | doctor | devices | emulators | run )
+    [ "$1" == "win" ] && shift || :
+    cd "$_dirsh"
+    PowerShell.exe ./flutter.ps1 "$@"
+    exit $?
+    ;;
+esac
 
 
 # 環境變數
@@ -31,36 +32,34 @@ cacheWinDirPath="$_dirsh/cache.win"
 
 flutterBinDirPath=`realpath "$_dirsh/../flutter/bin"`
 cacheDirPath="$flutterBinDirPath/cache"
-dartSdkDirPath="$cacheDirPath/dart-sdk/bin"
-dartUnixPath="$dartSdkDirPath/dart"
-dartWinPath="$dartSdkDirPath/dart.exe"
+
+fuCreateWinLink() {
+  local winLinkPath="$(wslpath -w "$1")"
+  local winTargetPath="$(wslpath -w "$2")"
+  PowerShell.exe \
+    New-Item "$winTargetPath" -ItemType Junction -Target "$winLinkPath" \
+    > /dev/null
+}
 
 
-if [ -d "$cacheDirPath" ] && [ ! -L "$cacheDirPath" ]; then
-  if [ -x "$dartUnixPath" ]; then
-    mv "$cacheDirPath" "$cacheUnixDirPath"
-  elif [ -x "$dartWinPath" ]; then
-    mv "$cacheDirPath" "$cacheWinDirPath"
-  fi
-fi
-if [ ! -x "$dartUnixPath" ]; then
-  if [ -d "$cacheDirPath" ] && [ -L "$cacheDirPath" ]; then
+# 若 $cacheDirPath 路徑存在鏈結文件，
+# 則更新其鏈結指向 $cacheUnixDirPath 路徑。
+# 若遇非鏈結文件，則拋出無法處理的錯誤。
+# 若 $cacheUnixDirPath 路徑不存在，則拋出文件不存在的錯誤。
+cacheDirLinkPath="$(readlink "$cacheDirPath")"
+if [ "$cacheDirLinkPath" != "$cacheUnixDirPath" ]; then
+  if [ -L "$cacheDirPath" ]; then
     rm "$cacheDirPath"
-  fi
-  if [ -d "$cacheDirPath" ]; then
+  elif [ -e "$cacheDirPath" ]; then
     echo "無法判斷 cache 文件的重要性 ($cacheDirPath)。" >&2
     exit 1
   fi
   if [ -e "$cacheUnixDirPath" ]; then
-    ln -s "$cacheUnixDirPath" "$cacheDirPath"
+    fuCreateWinLink "$cacheUnixDirPath" "$cacheDirPath"
   else
     echo "cache folder for Unix 不存在。" >&2
     exit 1
   fi
-fi
-if [ ! -x "$dartUnixPath" ]; then
-  echo "dart for Unix 不存在。" >&2
-  exit 1
 fi
 
 

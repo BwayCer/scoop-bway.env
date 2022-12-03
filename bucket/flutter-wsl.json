@@ -3,13 +3,18 @@
   "version": "latest",
   "description": "Google's SDK for crafting beautiful, fast user experiences for mobile, web, and desktop from a single codebase.",
   "license": "BSD-3-Clause",
-  "depends": "bway/android-clt",
+  "suggest": [
+    "bway/android-clt"
+  ],
   "env_set": {
     "FLUTTER_ROOT": "$dir\\flutter",
     "PUB_CACHE": "$dir\\.pub-cache"
   },
   "bin": [
-    "bin\\flutter.ps1"
+    [
+      "bin\\flutter.ps1",
+      "flutter.win"
+    ]
   ],
   "persist": [
     ".pub-cache",
@@ -46,6 +51,12 @@
       "  if ($_[1] -eq 0) { Copy-Item $_[3] $_[2] -Force -Recurse }",
       "  elseif ($_[1] -eq 1) { Invoke-WebRequest $_[3] -OutFile $_[2] }",
       "}"
+    ]
+  },
+  "uninstaller": {
+    "script": [
+      "$shimsPath = \"$dir\\..\\..\\..\\shims\"",
+      "Remove-Item \"$shimsPath\\flutter\""
     ]
   },
   "post_install": [

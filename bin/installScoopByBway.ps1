@@ -50,14 +50,21 @@ if (-not ($allowExecutionPolicyList -contains $currExecutionPolicy)) {
       [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $scoopGlobalPath, 'User')
     }
 
-    if (-not (Test-Path $scoopPath)) {
-      New-Item $scoopPath -ItemType Directory
+    # 如果目錄存在則視為再次安裝，只需補齊環境變數.
+    $scoopShimsPath = "$scoopPath\shims"
+    if (Test-Path $scoopShimsPath) {
+      $envPath = [Environment]::GetEnvironmentVariable('PATH', 'User')
+      if (-not ($envPath -split ";" -contains $scoopShimsPath)) {
+        'Set env path: "{0}"' -f $scoopShimsPath
+        $newEnvPath = '{0};{1}' -f $scoopShimsPath, $envPath
+        [Environment]::SetEnvironmentVariable('PATH', $newEnvPath, 'User')
+      }
+    } else {
+      # 安裝 Scoop
+      # Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+      # or
+      iwr get.scoop.sh | iex
     }
-
-    # 安裝 Scoop
-    # Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-    # or
-    iwr get.scoop.sh | iex
   }
 
   # 安裝常用程式包

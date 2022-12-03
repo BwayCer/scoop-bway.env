@@ -56,5 +56,7 @@ uninstallScoopByBway.ps1
 
 ## 推薦程式桶
 
+* [`main/ffmpeg`](https://github.com/ScoopInstaller/Java/blob/master/bucket/openjdk.json)
+* [`main/youtube-dl`](https://github.com/ScoopInstaller/Java/blob/master/bucket/openjdk.json)
 * [`java/openjdk`](https://github.com/ScoopInstaller/Java/blob/master/bucket/openjdk.json)
 

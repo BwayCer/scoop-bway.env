@@ -15,7 +15,7 @@
 ## 安裝
 # 預設配置
 # - Scoop 安裝程式包目錄路徑
-#     $scoopPath       = "$HOME\Desktop\apps\scoop"
+#     $scoopPath       = "$HOME\ph\scoop"
 #     $scoopGlobalPath = "" # 不設置全域路徑
 # - 程式桶: bway
 # - 程式包: sudo, git

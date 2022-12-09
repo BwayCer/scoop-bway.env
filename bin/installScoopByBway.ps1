@@ -44,10 +44,12 @@ if (-not ($allowExecutionPolicyList -contains $currExecutionPolicy)) {
     # 設定環境變量.
     'Set env SCOOP: {0}' -f $scoopPath
     [Environment]::SetEnvironmentVariable('SCOOP', $scoopPath, 'User')
+    $env:SCOOP = $scoopPath
     if ($scoopGlobalPath -ne $null) {
       # 以管理員身分安裝時為全域安裝.
       'Set env SCOOP_GLOBAL: {0}' -f $scoopGlobalPath
       [Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $scoopGlobalPath, 'User')
+      $env:SCOOP_GLOBAL = $scoopGlobalPath
     }
 
     # 如果目錄存在則視為再次安裝，只需補齊環境變數.

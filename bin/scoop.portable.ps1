@@ -30,22 +30,25 @@ try {
   # 避免被覆寫.
   $zzzzzzOriginEnvPATH = $originEnvPATH
   $zzzzzzOriginEnvSCOOP = $originEnvSCOOP
+  $zzzzzzOriginUserEnvPATH = [Environment]::GetEnvironmentVariable('PATH', 'User')
 
   $env:PATH = "$portableScoopPath\shims;" + $originEnvPATH
   $env:SCOOP = $portableScoopPath
 
   switch ($args[0]) {
     { @("install", "uninstall", "list") -contains $_ } {
-      $originUserEnvPATH = [Environment]::GetEnvironmentVariable('PATH', 'User')
       scoop @args
-      [Environment]::SetEnvironmentVariable('PATH', $originEnvPATH, 'User')
       break
     }
     default {
-      @args
+      PowerShell.exe @args
     }
   }
 } finally {
+  $newUserEnvPATH = [Environment]::GetEnvironmentVariable('PATH', 'User')
+  if ($newUserEnvPATH -ne $zzzzzzOriginUserEnvPATH) {
+    [Environment]::SetEnvironmentVariable('PATH', $zzzzzzOriginUserEnvPATH, 'User')
+  }
   $env:PATH = $zzzzzzOriginEnvPATH
   $env:SCOOP = $zzzzzzOriginEnvSCOOP
 }

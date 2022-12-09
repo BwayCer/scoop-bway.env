@@ -7,7 +7,7 @@
 param($paramScoopPath, $paramScoopGlobalPath)
 
 
-$defaultScoopPath = "$HOME\Desktop\apps\scoop"
+$defaultScoopPath = "$HOME\ph\scoop"
 
 
 # 允許執行腳本權限.
@@ -69,7 +69,7 @@ if (-not ($allowExecutionPolicyList -contains $currExecutionPolicy)) {
 
   # 安裝常用程式包
   # - sudo: 取得管理員權限
-  # - git: scoop 安裝其他 bucket 的依賴程式包
+  # - git: scoop 安裝其他 bucket 的依賴程式包.
   $($existedPkgList = scoop list) *> $null
   $isExistedSudoPkg = $existedPkgList.Name -contains "sudo"
   $isExistedGitPkg = $existedPkgList.Name -contains "git"
